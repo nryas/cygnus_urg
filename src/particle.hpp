@@ -9,18 +9,30 @@
 #ifndef particle_hpp
 #define particle_hpp
 
-#include <stdio.h>
+#include "ofMain.h"
 
 #endif /* particle_hpp */
 
-float radius = 40;
-
 class Particle {
     
+    private:
+        ofPoint position;
+        ofPoint speed;
+        float radius;
+        float phase;
+        float phase_speed;
+        float streched_radius; // radius after streching
+    
     public:
+        Particle();
         void setup();
         void update();
         void draw();
-        float remain_time;
+        void setPos(ofPoint _position);
+        ofPoint getPos();
+        void setRadius(float _radius);
+        float getRadius();
+        void setSpeed(ofPoint _speed);
+        ofPoint getSpeed();
 
 };

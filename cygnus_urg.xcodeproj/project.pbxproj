@@ -15,6 +15,7 @@
 		493CC0B9808962FEF69E821D /* urg_tcpclient.c in Sources */ = {isa = PBXBuildFile; fileRef = 23D2D01E0BD6C10D040EC79E /* urg_tcpclient.c */; };
 		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
 		6EDBF2A81BEE0E8600049290 /* particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2A61BEE0E8600049290 /* particle.cpp */; };
+		6EDBF2AE1BEEE29B00049290 /* urg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2AC1BEEE29B00049290 /* urg.cpp */; };
 		70B5DB1E7A98020F3F3349A2 /* Urg_driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DFDBE33358395A1FC714 /* Urg_driver.cpp */; };
 		7469AB3AA235B3F315403315 /* urg_serial.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B7309DF6C97DC940F74B9B8 /* urg_serial.c */; };
 		752026AAFC25FBCD17DBC22F /* ticks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87FD956C40B7BB133199D01C /* ticks.cpp */; };
@@ -96,6 +97,8 @@
 		69544655D52AB4F96506368B /* urg_serial_utils.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = urg_serial_utils.c; path = ../../../addons/ofxUrg/libs/urg_library/src/urg_serial_utils.c; sourceTree = SOURCE_ROOT; };
 		6EDBF2A61BEE0E8600049290 /* particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = particle.cpp; sourceTree = "<group>"; };
 		6EDBF2A71BEE0E8600049290 /* particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = particle.hpp; sourceTree = "<group>"; };
+		6EDBF2AC1BEEE29B00049290 /* urg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = urg.cpp; sourceTree = "<group>"; };
+		6EDBF2AD1BEEE29B00049290 /* urg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = urg.hpp; sourceTree = "<group>"; };
 		78D67A00EB899FAC09430597 /* ofxLabel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxLabel.cpp; path = ../../../addons/ofxGui/src/ofxLabel.cpp; sourceTree = SOURCE_ROOT; };
 		802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSliderGroup.cpp; path = ../../../addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
 		87F26B4B24CBD428AD9EEBAA /* ofxBaseGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBaseGui.h; path = ../../../addons/ofxGui/src/ofxBaseGui.h; sourceTree = SOURCE_ROOT; };
@@ -347,6 +350,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				6EDBF2A61BEE0E8600049290 /* particle.cpp */,
 				6EDBF2A71BEE0E8600049290 /* particle.hpp */,
+				6EDBF2AC1BEEE29B00049290 /* urg.cpp */,
+				6EDBF2AD1BEEE29B00049290 /* urg.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -462,6 +467,7 @@
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
+				6EDBF2AE1BEEE29B00049290 /* urg.cpp in Sources */,
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				6EDBF2A81BEE0E8600049290 /* particle.cpp in Sources */,

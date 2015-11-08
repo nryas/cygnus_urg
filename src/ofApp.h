@@ -28,4 +28,5 @@ class ofApp : public ofBaseApp{
         ofxPanel gui;
         ofxFloatSlider slider;
 		
+        vector <Particle> particles;
 };
