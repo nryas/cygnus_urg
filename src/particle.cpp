@@ -17,14 +17,11 @@ Particle::Particle() {
 }
 
 void Particle::draw() {
-    ofSetColor(200, 20, 20, 100);
     ofNoFill();
     ofCircle(position, radius);
     
-    ofSetColor(255, 0, 0);
     ofNoFill();
     ofCircle(position.x, position.y, radius/10.0);
-    ofSetColor(200, 20, 20);
 }
 
 void Particle::update() {

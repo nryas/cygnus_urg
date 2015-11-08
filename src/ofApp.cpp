@@ -6,7 +6,7 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofBackground(0);
     
-    urg.setMode(ofxUrg::DISTANCE);
+    urg.setMode(ofx::Urg::DISTANCE);
     urg.setupSerial();
     
     ofLogNotice("Product", urg.productType());

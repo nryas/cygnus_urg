@@ -1,12 +1,15 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxUrg.h"
+#include "urg.hpp"
 #include "particle.hpp"
 #include "ofxGui.h"
 #include <vector>
 
 class ofApp : public ofBaseApp{
+    
+    private:
+        Urg urg;
 
 	public:
 		void setup();
@@ -22,8 +25,7 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-    
-        ofxUrg::Device urg;
+
         ofEasyCam cam;
         ofxPanel gui;
         ofxFloatSlider slider;
