@@ -2,7 +2,6 @@
 
 #include "ofMain.h"
 #include "urg.hpp"
-#include "particle.hpp"
 #include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
