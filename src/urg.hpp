@@ -18,6 +18,9 @@ class Urg : public Device{
     protected:
         bool is_frame_captured;
         vector<long> data_captured, data_diff;
+        vector<int> streak_end;
+        int streak_count;
+        long total;
     
     public:
         Urg();

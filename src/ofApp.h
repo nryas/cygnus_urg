@@ -4,7 +4,6 @@
 #include "urg.hpp"
 #include "particle.hpp"
 #include "ofxGui.h"
-#include <vector>
 
 class ofApp : public ofBaseApp{
     
