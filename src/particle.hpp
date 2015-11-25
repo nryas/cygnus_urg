@@ -21,7 +21,6 @@ class Particle {
         float radius;
         float phase;
         float phase_speed;
-        float streched_radius; // radius after streching
     
     public:
         Particle();

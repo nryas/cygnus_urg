@@ -17,19 +17,15 @@ Particle::Particle() {
 }
 
 void Particle::draw() {
-    ofNoFill();
     ofCircle(position, radius);
-    
-    ofNoFill();
-    ofCircle(position.x, position.y, radius/10.0);
 }
 
 void Particle::update() {
-    radius = radius + sin(phase)*radius/4;
+    radius = radius * sin(phase);
     phase += phase_speed;
-    if(phase > TWO_PI) {
-        phase -= TWO_PI;
-    }
+//    if(phase > TWO_PI) {
+//        phase -= TWO_PI;
+//    }
     
     if (position.x < radius || position.x > ofGetWidth() - radius) {
         speed.x *= -1;

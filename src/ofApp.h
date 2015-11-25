@@ -27,6 +27,4 @@ class ofApp : public ofBaseApp{
         ofEasyCam cam;
         ofxPanel gui;
         ofxFloatSlider slider;
-		
-        vector <Particle> particles;
 };

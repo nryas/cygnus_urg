@@ -10,6 +10,7 @@
 #define urg_hpp
 
 #include "ofxUrg.h"
+#include "particle.hpp"
 
 #endif /* urg_hpp */
 
@@ -28,4 +29,5 @@ class Urg : public Device{
         void drawData();
         void update();
         bool isFrameCaptured();
+        vector<Particle> particles;
 };

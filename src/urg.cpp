@@ -7,6 +7,7 @@
 //
 
 #include "urg.hpp"
+
 #define MAX_DISTANCE 0
 #define STREAK_END 20000
 
@@ -21,7 +22,6 @@ void Urg::captureData(){
 }
 
 void Urg::drawData(){
-    ofNoFill();
     if (is_frame_captured)
     {
         for (int i=0; i<streak_end.size(); i++) {
@@ -31,13 +31,28 @@ void Urg::drawData(){
             float y = r * sin(theta);
             
             if (abs(x), abs(y) > 1) {
-                ofCircle(x, y, 100);
+                Particle p;
+                p.setPos(ofPoint(x, y));
+                p.setRadius(100);
+                p.setSpeed(ofPoint(1.2, 1.2));
+                particles.push_back(p);
+                
+//                ofCircle(x, y, 100);
             }
         }
+    }
+    for (int i=0; i<particles.size(); i++) {
+        particles[i].draw();
     }
 }
 
 void Urg::update() {
+    for (int i=0; i<particles.size(); i++) {
+        if (particles[i].getRadius() == 0)
+            particles.erase(particles.begin() + i);
+        particles[i].update();
+    }
+    
     is_frame_new = false;
     
     ofMutex mutex;
