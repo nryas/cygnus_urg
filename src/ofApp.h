@@ -26,5 +26,7 @@ class ofApp : public ofBaseApp{
 
         ofEasyCam cam;
         ofxPanel gui;
-        ofxFloatSlider slider;
+        ofxFloatSlider sliderScale;
+        ofxFloatSlider sliderX;
+        ofxFloatSlider sliderY;
 };

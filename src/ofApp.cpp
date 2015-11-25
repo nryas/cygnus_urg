@@ -16,7 +16,9 @@ void ofApp::setup(){
     ofLogNotice("Firmware version", urg.firmwareVersion());
     
     gui.setup();
-    gui.add(slider.setup("Scale", 2.4, 0.01, 3));
+    gui.add(sliderScale.setup("Scale", 2.4, 0.01, 3));
+    gui.add(sliderX.setup("X", 100, -1000, 1000));
+    gui.add(sliderY.setup("Y", 100, -1000, 1000));
     
     urg.start();
 }
@@ -28,16 +30,17 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    cam.begin();
+//    cam.begin();
     ofPushMatrix();
-    float s = slider;
-    ofScale(s, s, s);
-    
+    float s = sliderScale;
+    ofTranslate(sliderX, sliderY);
+    ofRotateX(180);
     ofRotateZ(-90);
+    ofScale(s, s, s);
     urg.drawData();
 //  urg.drawDebugPolar();
     ofPopMatrix();
-    cam.end();
+//    cam.end();
     
 //  urg.drawData();
     

@@ -36,9 +36,15 @@ void Urg::drawData(){
                 p.setRadius(100);
                 p.setSpeed(ofPoint(1.2, 1.2));
                 particles.push_back(p);
-                
-//                ofCircle(x, y, 100);
             }
+        }
+        
+        for (int i=0; i<data.size(); i++) {
+            float r = 100;
+            float theta = urg.index2rad(i);
+            float x = r * cos(theta);
+            float y = r * sin(theta);
+            ofCircle(x, y, 10);
         }
     }
     for (int i=0; i<particles.size(); i++) {
