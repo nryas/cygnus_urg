@@ -21,7 +21,8 @@ void Urg::captureData(){
     is_frame_captured = true;
 }
 
-void Urg::drawData(){
+void Urg::drawData(float sliderR, float sliderD){
+    
     if (is_frame_captured)
     {
         for (int i=0; i<streak_end.size(); i++) {
@@ -32,9 +33,10 @@ void Urg::drawData(){
             
             if (abs(x), abs(y) > 1) {
                 Particle p;
-                p.setPos(ofPoint(x, y));
-                p.setRadius(100);
+                p.setPos(ofPoint(x + x * sliderD, y));
+                p.setRadius(sliderR);
                 p.setSpeed(ofPoint(1.2, 1.2));
+                p.draw();
                 particles.push_back(p);
             }
         }
@@ -46,9 +48,6 @@ void Urg::drawData(){
             float y = r * sin(theta);
             ofCircle(x, y, 10);
         }
-    }
-    for (int i=0; i<particles.size(); i++) {
-        particles[i].draw();
     }
 }
 

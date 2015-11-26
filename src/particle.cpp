@@ -17,6 +17,7 @@ Particle::Particle() {
 }
 
 void Particle::draw() {
+    ofSetColor(255, 255, 255);
     ofCircle(position, radius);
 }
 

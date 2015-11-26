@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate(60);
-    ofSetVerticalSync(true);
+    ofSetVerticalSync(false);
     ofBackground(0);
     
     urg.setMode(ofx::Urg::DISTANCE);
@@ -16,19 +16,17 @@ void ofApp::setup(){
     ofLogNotice("Firmware version", urg.firmwareVersion());
     
     gui.setup();
-    gui.add(sliderScale.setup("Scale", 2.4, 0.01, 3));
-    gui.add(sliderX.setup("X", 640, -1000, 1000));
-    gui.add(sliderY.setup("Y", 100, -1000, 1000));
+    gui.add(sliderScale.setup("Scale", 1.49, 0.01, 3));
+    gui.add(sliderX.setup("X", 460, -1000, 1000));
+    gui.add(sliderY.setup("Y", -70, -1000, 1000));
     gui.add(sliderR.setup("R", 100, 0, 200));
+    gui.add(sliderD.setup("D", 0, -2, 2));
     
     urg.start();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-//    for (int i=0; i<urg.particles.size(); i++) {
-//        urg.particles[i].setRadius(sliderR);
-//    }
     urg.update();
 }
 
@@ -39,17 +37,15 @@ void ofApp::draw(){
     ofRotateX(180);
     ofRotateZ(-90);
     ofScale(sliderScale, sliderScale, sliderScale);
-    urg.drawData();
+    urg.drawData(sliderR, sliderD);
 //  urg.drawDebugPolar();
     ofPopMatrix();
     
-//  urg.drawData();
-    
-    ofDrawBitmapString(ofToString(ofGetFrameRate(), 0), 20, 80);
+    ofDrawBitmapString(ofToString(ofGetFrameRate(), 0), 20, 140);
     if (!urg.isFrameCaptured()) {
-        ofDrawBitmapString("frame is not captured", 20, 100);
+        ofDrawBitmapString("frame is not captured", 20, 160);
     } else {
-        ofDrawBitmapString("frame is captured", 20, 120);
+        ofDrawBitmapString("frame is captured", 20, 160);
     }
     
     gui.draw();

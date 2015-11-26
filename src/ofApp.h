@@ -29,4 +29,5 @@ class ofApp : public ofBaseApp{
         ofxFloatSlider sliderX;
         ofxFloatSlider sliderY;
         ofxFloatSlider sliderR;
+        ofxFloatSlider sliderD;
 };

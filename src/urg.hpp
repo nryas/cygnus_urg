@@ -26,7 +26,7 @@ class Urg : public Device{
     public:
         Urg();
         void captureData();
-        void drawData();
+        void drawData(float r, float d);
         void update();
         bool isFrameCaptured();
         vector<Particle> particles;
