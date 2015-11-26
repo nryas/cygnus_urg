@@ -10,7 +10,7 @@
 
 Particle::Particle() {
     position = ofPoint(ofGetAppPtr()->mouseX, ofGetAppPtr()->mouseY);
-    radius = ofRandom(30, 60);
+    radius = 60;
     speed = ofPoint(0, 0);
     phase_speed = ofRandom(0.1, 0.5);
     phase = 0;

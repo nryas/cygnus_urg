@@ -24,9 +24,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-        ofEasyCam cam;
         ofxPanel gui;
         ofxFloatSlider sliderScale;
         ofxFloatSlider sliderX;
         ofxFloatSlider sliderY;
+        ofxFloatSlider sliderR;
 };
