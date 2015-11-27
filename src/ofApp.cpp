@@ -35,7 +35,7 @@ void ofApp::draw(){
     ofPushMatrix();
     ofTranslate(sliderX, sliderY);
     ofRotateX(180);
-    ofRotateZ(-90);
+    ofRotateZ(-96);
     ofScale(sliderScale, sliderScale, sliderScale);
     urg.drawData(sliderR, sliderD);
 //  urg.drawDebugPolar();
