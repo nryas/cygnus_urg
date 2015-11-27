@@ -17,10 +17,7 @@ class Particle {
     
     private:
         ofPoint position;
-        ofPoint speed;
         float radius;
-        float phase;
-        float phase_speed;
     
     public:
         Particle();
@@ -31,7 +28,5 @@ class Particle {
         ofPoint getPos();
         void setRadius(float _radius);
         float getRadius();
-        void setSpeed(ofPoint _speed);
-        ofPoint getSpeed();
 
 };

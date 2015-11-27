@@ -35,7 +35,6 @@ void Urg::drawData(float sliderR, float sliderD){
                 Particle p;
                 p.setPos(ofPoint(x + x * sliderD, y));
                 p.setRadius(sliderR);
-                p.setSpeed(ofPoint(1.2, 1.2));
                 p.draw();
                 particles.push_back(p);
             }
