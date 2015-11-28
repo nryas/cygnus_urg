@@ -3,7 +3,6 @@
 #include "ofMain.h"
 #include "urg.hpp"
 #include "ofxGui.h"
-#include "ofxBox2d.h"
 
 class ofApp : public ofBaseApp{
     

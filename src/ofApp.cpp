@@ -23,11 +23,13 @@ void ofApp::setup(){
     gui.add(sliderD.setup("D", 0, -2, 2));
     
     urg.start();
+    
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    urg.update();
+    urg.update(sliderR, sliderD);
 }
 
 //--------------------------------------------------------------
@@ -37,15 +39,28 @@ void ofApp::draw(){
     ofRotateX(180);
     ofRotateZ(-96);
     ofScale(sliderScale, sliderScale, sliderScale);
-    urg.drawData(sliderR, sliderD);
+    
+    for (int i=0; i<urg.feet.size(); i++) {
+        ofSetColor(20, 200, 140);
+        urg.feet[i].get()->draw();
+    }
+    
+    for (int i=0; i<urg.circles.size(); i++) {
+        ofSetColor(200, 20, 140);
+        urg.circles[i].get()->draw();
+    }
+    
+    urg.draw();
+    
 //  urg.drawDebugPolar();
     ofPopMatrix();
     
+    ofSetColor(255, 255, 255);
     ofDrawBitmapString(ofToString(ofGetFrameRate(), 0), 20, 140);
     if (!urg.isFrameCaptured()) {
-        ofDrawBitmapString("frame is not captured", 20, 160);
+        ofDrawBitmapString("not learned", 20, 160);
     } else {
-        ofDrawBitmapString("frame is captured", 20, 160);
+        ofDrawBitmapString("learned", 20, 160);
     }
     
     gui.draw();

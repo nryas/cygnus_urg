@@ -8,7 +8,7 @@
 
 #include "particle.hpp"
 
-Particle::Particle() {
+Particle::Particle() : ofxBox2dCircle() {
     position = ofPoint(ofGetAppPtr()->mouseX, ofGetAppPtr()->mouseY);
     radius = 60;
 }
@@ -16,9 +16,6 @@ Particle::Particle() {
 void Particle::draw() {
     ofSetColor(255, 255, 255);
     ofCircle(position, radius);
-}
-
-void Particle::update() {
 }
 
 void Particle::setPos(ofPoint _position) {
