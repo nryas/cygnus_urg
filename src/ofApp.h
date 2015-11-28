@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "urg.hpp"
 #include "ofxGui.h"
+#include "ofxGpuParticles.h"
 
 class ofApp : public ofBaseApp{
     

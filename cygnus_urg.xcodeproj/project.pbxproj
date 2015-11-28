@@ -14,6 +14,7 @@
 		483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D67A00EB899FAC09430597 /* ofxLabel.cpp */; };
 		493CC0B9808962FEF69E821D /* urg_tcpclient.c in Sources */ = {isa = PBXBuildFile; fileRef = 23D2D01E0BD6C10D040EC79E /* urg_tcpclient.c */; };
 		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
+		6E56482A1C09FEB500EDC786 /* GpuParticles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E5648241C09FEB500EDC786 /* GpuParticles.cpp */; };
 		6EDBF2AE1BEEE29B00049290 /* urg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EDBF2AC1BEEE29B00049290 /* urg.cpp */; };
 		6EFAAC2A1C0744BF00E7688E /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EFAAB831C0744BF00E7688E /* b2BroadPhase.cpp */; };
 		6EFAAC2B1C0744BF00E7688E /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EFAAB851C0744BF00E7688E /* b2CollideCircle.cpp */; };
@@ -150,6 +151,10 @@
 		58EB4AD96E18E0F6FC7D866D /* urg_debug.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = urg_debug.h; path = ../../../addons/ofxUrg/libs/urg_library/include/urg_debug.h; sourceTree = SOURCE_ROOT; };
 		5D6EBDBF1C3C4D703EF2092F /* urg_ring_buffer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = urg_ring_buffer.c; path = ../../../addons/ofxUrg/libs/urg_library/src/urg_ring_buffer.c; sourceTree = SOURCE_ROOT; };
 		69544655D52AB4F96506368B /* urg_serial_utils.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = urg_serial_utils.c; path = ../../../addons/ofxUrg/libs/urg_library/src/urg_serial_utils.c; sourceTree = SOURCE_ROOT; };
+		6E5648081C09FEB500EDC786 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6E5648241C09FEB500EDC786 /* GpuParticles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GpuParticles.cpp; sourceTree = "<group>"; };
+		6E5648251C09FEB500EDC786 /* GpuParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpuParticles.h; sourceTree = "<group>"; };
+		6E5648261C09FEB500EDC786 /* ofxGpuParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGpuParticles.h; sourceTree = "<group>"; };
 		6EDBF2AC1BEEE29B00049290 /* urg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = urg.cpp; sourceTree = "<group>"; };
 		6EDBF2AD1BEEE29B00049290 /* urg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = urg.hpp; sourceTree = "<group>"; };
 		6EFAAA411C0744BB00E7688E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -390,6 +395,25 @@
 				F473FBAFD011FB3187700C71 /* urg_library */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		6E5648071C09FEB500EDC786 /* ofxGpuParticles */ = {
+			isa = PBXGroup;
+			children = (
+				6E5648081C09FEB500EDC786 /* .gitignore */,
+				6E5648231C09FEB500EDC786 /* src */,
+			);
+			path = ofxGpuParticles;
+			sourceTree = "<group>";
+		};
+		6E5648231C09FEB500EDC786 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6E5648241C09FEB500EDC786 /* GpuParticles.cpp */,
+				6E5648251C09FEB500EDC786 /* GpuParticles.h */,
+				6E5648261C09FEB500EDC786 /* ofxGpuParticles.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		6E74489959DDAB8B03123BC1 /* src */ = {
@@ -662,6 +686,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				6E5648071C09FEB500EDC786 /* ofxGpuParticles */,
 				6EFAAA401C0744BB00E7688E /* ofxBox2d */,
 				480A780D8D0308AE4A368801 /* ofxGui */,
 				D2AB221E7B134D8D24C7F71B /* ofxUrg */,
@@ -856,6 +881,7 @@
 			files = (
 				6EFAAC351C0744BF00E7688E /* b2PolygonShape.cpp in Sources */,
 				6EFAAC581C0744BF00E7688E /* del_impl.cpp in Sources */,
+				6E56482A1C09FEB500EDC786 /* GpuParticles.cpp in Sources */,
 				6EFAAC371C0744BF00E7688E /* b2Draw.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				6EFAAC511C0744BF00E7688E /* b2PrismaticJoint.cpp in Sources */,
@@ -1049,6 +1075,7 @@
 					../../../addons/ofxUrg/libs/urg_library/src,
 					../../../addons/ofxUrg/src,
 					../../../addons/ofxBox2d/libs,
+					../../../addons/ofxGpuParticles/src,
 				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
@@ -1147,6 +1174,7 @@
 					../../../addons/ofxUrg/libs/urg_library/src,
 					../../../addons/ofxUrg/src,
 					../../../addons/ofxBox2d/libs,
+					../../../addons/ofxGpuParticles/src,
 				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
