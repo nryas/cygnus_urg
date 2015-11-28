@@ -31,7 +31,5 @@ class Urg : public Device{
         void draw();
         void update(float sliderR, float sliderD);
         bool isFrameCaptured();
-        vector <shared_ptr <ofxBox2dCircle> > feet;
-        vector <shared_ptr <ofxBox2dCircle> > circles;
-        ofxBox2d box2d;
+        vector <shared_ptr <ofPoint> > feet;
 };

@@ -40,16 +40,6 @@ void ofApp::draw(){
     ofRotateZ(-96);
     ofScale(sliderScale, sliderScale, sliderScale);
     
-    for (int i=0; i<urg.feet.size(); i++) {
-        ofSetColor(20, 200, 140);
-        urg.feet[i].get()->draw();
-    }
-    
-    for (int i=0; i<urg.circles.size(); i++) {
-        ofSetColor(200, 20, 140);
-        urg.circles[i].get()->draw();
-    }
-    
     urg.draw();
     
 //  urg.drawDebugPolar();

@@ -15,21 +15,6 @@ Urg::Urg() {
     is_frame_learned = false;
     streak_count = 0;
     total = 0;
-    
-    box2d.init();
-    box2d.setGravity(0, 0);
-    box2d.createBounds();
-    box2d.setFPS(30);
-    box2d.registerGrabbing();
-    
-    for (int i=0; i<CIRCLE_NUM; i++) {
-        float x = ofRandom(0, ofGetWidth());
-        float y = ofRandom(0, ofGetHeight());
-        
-        circles.push_back(shared_ptr<ofxBox2dCircle>(new ofxBox2dCircle));
-        circles.back().get()->setPhysics(20, 20, 0);
-        circles.back().get()->ofxBox2dCircle::setup(box2d.getWorld(), x, y, 10);
-    }
 }
 
 void Urg::captureData(){
@@ -51,10 +36,8 @@ void Urg::update(float sliderR, float sliderD) {
             float y = r * sin(theta);
             
             if (abs(x), abs(y) > 1) {
-                feet.push_back(shared_ptr<ofxBox2dCircle>(new ofxBox2dCircle));
-                feet.back().get()->setPhysics(0, 0.5, 0.1);
-                feet.back().get()->ofxBox2dCircle::setup(box2d.getWorld(), x, y, 20);
-//                feet.back().get()->addForce(ofPoint(x, y), 20);
+                shared_ptr<ofPoint> foot = shared_ptr<ofPoint>(new ofPoint(x, y));
+                feet.push_back(foot);
             }
         }
     }
@@ -107,8 +90,6 @@ void Urg::update(float sliderR, float sliderD) {
         }
     }
     mutex.unlock();
-    
-    box2d.update();
 }
 
 void Urg::draw(){
@@ -119,6 +100,10 @@ void Urg::draw(){
         float x = r * cos(theta);
         float y = r * sin(theta);
         ofCircle(x, y, 10);
+    }
+    
+    for (int i=0; i<feet.size(); i++) {
+        ofCircle(feet[i]->x, feet[i]->y, 20);
     }
 }
 
