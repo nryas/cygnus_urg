@@ -3,15 +3,11 @@
 #include "ofMain.h"
 #include "urg.hpp"
 #include "ofxGui.h"
-#include "ofxGpuParticles.h"
 
 class ofApp : public ofBaseApp{
     
     private:
         Urg urg;
-        void onParticlesUpdate(ofShader& shader);
-        
-        ofxGpuParticles particles;
 
 	public:
 		void setup();
