@@ -10,7 +10,6 @@
 #define urg_hpp
 
 #include "ofxUrg.h"
-#include "particle.hpp"
 
 #define CIRCLE_NUM 2000
 
