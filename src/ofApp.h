@@ -9,6 +9,9 @@ class ofApp : public ofBaseApp{
     
     private:
         Urg urg;
+        void onParticlesUpdate(ofShader& shader);
+        
+        ofxGpuParticles particles;
 
 	public:
 		void setup();
