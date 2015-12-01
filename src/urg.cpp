@@ -8,23 +8,24 @@
 
 #include "urg.hpp"
 
-#define MAX_DISTANCE 0
-#define STREAK_END 20000
-
 Urg::Urg() {
-    is_frame_captured = false;
+    is_frame_learned = false;
     streak_count = 0;
     total = 0;
 }
+
 void Urg::captureData(){
     data_captured = data_buffer;
-    is_frame_captured = true;
+    is_frame_learned = true;
 }
 
-void Urg::drawData(float sliderR, float sliderD){
+void Urg::update(float sliderR, float sliderD) {
     
-    if (is_frame_captured)
+    feet.clear();
+    
+    if (is_frame_learned)
     {
+        
         for (int i=0; i<streak_end.size(); i++) {
             float r = data_diff[streak_end[i]];
             float theta = urg.index2rad(streak_end[i]);
@@ -32,30 +33,10 @@ void Urg::drawData(float sliderR, float sliderD){
             float y = r * sin(theta);
             
             if (abs(x), abs(y) > 1) {
-                Particle p;
-                p.setPos(ofPoint(x + x * sliderD, y));
-                p.setRadius(sliderR);
-                p.setSpeed(ofPoint(1.2, 1.2));
-                p.draw();
-                particles.push_back(p);
+                shared_ptr<ofPoint> foot = shared_ptr<ofPoint>(new ofPoint(x, y));
+                feet.push_back(foot);
             }
         }
-        
-        for (int i=0; i<data.size(); i++) {
-            float r = 100;
-            float theta = urg.index2rad(i);
-            float x = r * cos(theta);
-            float y = r * sin(theta);
-            ofCircle(x, y, 10);
-        }
-    }
-}
-
-void Urg::update() {
-    for (int i=0; i<particles.size(); i++) {
-        if (particles[i].getRadius() == 0)
-            particles.erase(particles.begin() + i);
-        particles[i].update();
     }
     
     is_frame_new = false;
@@ -66,7 +47,7 @@ void Urg::update() {
     {
         streak_end.clear();
         data_diff = data_buffer;
-        if (is_frame_captured) {
+        if (is_frame_learned) {
             for (int i=0; i<data_diff.size(); i++) {
                 
                 if (abs(data_captured[i] - data_diff[i]) < 100) {
@@ -108,4 +89,19 @@ void Urg::update() {
     mutex.unlock();
 }
 
-bool Urg::isFrameCaptured() { return is_frame_captured; }
+void Urg::draw(){
+    
+    for (int i=0; i<data.size(); i++) {
+        float r = 100;
+        float theta = urg.index2rad(i);
+        float x = r * cos(theta);
+        float y = r * sin(theta);
+        ofCircle(x, y, 10);
+    }
+    
+//    for (int i=0; i<feet.size(); i++) {
+//        ofCircle(feet[i]->x, feet[i]->y, 5);
+//    }
+}
+
+bool Urg::isFrameCaptured() { return is_frame_learned; }
