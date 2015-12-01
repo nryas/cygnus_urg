@@ -47,7 +47,7 @@ void ofApp::setup(){
     group.setColor(ofxSPK::RangeC(ofColor(255, 255), ofColor(255, 255)),
                    ofxSPK::RangeC(ofColor(0, 0), ofColor(255, 0)));
     
-    group.setLifeTime(0.5, 5);
+    group.setLifeTime(1, 10);
     group.setFriction(0.1);
     group.setSize(0, ofxSPK::RangeF(30, 250));
     
@@ -57,7 +57,7 @@ void ofApp::setup(){
     rot.setup(SPK::Vortex::create(SPK::Vector3D(ofGetWidth()/2, ofGetHeight()/2),
                                   SPK::Vector3D(0, 0, 0),
                                   200,
-                                  1), group);
+                                  10), group);
     
     group.reserve(1000);
     

@@ -99,9 +99,9 @@ void Urg::draw(){
         ofCircle(x, y, 10);
     }
     
-    for (int i=0; i<feet.size(); i++) {
-        ofCircle(feet[i]->x, feet[i]->y, 20);
-    }
+//    for (int i=0; i<feet.size(); i++) {
+//        ofCircle(feet[i]->x, feet[i]->y, 5);
+//    }
 }
 
 bool Urg::isFrameCaptured() { return is_frame_learned; }
