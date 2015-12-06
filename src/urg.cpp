@@ -20,7 +20,6 @@ void Urg::captureData(){
 }
 
 void Urg::update(float sliderR, float sliderD) {
-    
     feet.clear();
     
     if (is_frame_learned)

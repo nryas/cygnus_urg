@@ -30,4 +30,9 @@ class ofApp : public ofBaseApp{
         ofxFloatSlider sliderY;
         ofxFloatSlider sliderR;
         ofxFloatSlider sliderD;
+        ofxIntSlider soundSensitiveness;
+    
+        string sound_names[6];
+        int last_feet_count;
+        vector <ofSoundPlayer> sound_player;
 };

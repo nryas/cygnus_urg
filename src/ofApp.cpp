@@ -6,6 +6,10 @@ ofxSPK::Group group;
 ofImage sprite;
 ofxSPK::Modifier rot;
 
+bool sound_end(ofSoundPlayer sp) {
+    return !sp.getIsPlaying();
+}
+
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate(60);
@@ -22,11 +26,12 @@ void ofApp::setup(){
     ofLogNotice("Firmware version", urg.firmwareVersion());
     
     gui.setup();
-    gui.add(sliderScale.setup("Scale", 1.49, 0.01, 3));
-    gui.add(sliderX.setup("X", 460, -1000, 1000));
-    gui.add(sliderY.setup("Y", -70, -1000, 1000));
+    gui.add(sliderScale.setup("Scale", 0.2492, 0.01, 3));
+    gui.add(sliderX.setup("X", 550, -1000, 1000));
+    gui.add(sliderY.setup("Y", -10, -1000, 1000));
     gui.add(sliderR.setup("R", 100, 0, 200));
     gui.add(sliderD.setup("D", 0, -2, 2));
+    gui.add(soundSensitiveness.setup("S", 4, 1, 20));
     
     urg.start();
     
@@ -47,7 +52,7 @@ void ofApp::setup(){
     group.setColor(ofxSPK::RangeC(ofColor(255, 255), ofColor(255, 255)),
                    ofxSPK::RangeC(ofColor(0, 0), ofColor(255, 0)));
     
-    group.setLifeTime(1, 10);
+    group.setLifeTime(1, 20);
     group.setFriction(0.1);
     group.setSize(0, ofxSPK::RangeF(30, 250));
     
@@ -59,8 +64,9 @@ void ofApp::setup(){
                                   200,
                                   10), group);
     
-    group.reserve(1000);
+    group.reserve(400);
     
+    last_feet_count = 0;
 }
 
 //--------------------------------------------------------------
@@ -71,6 +77,21 @@ void ofApp::update(){
         group.emitRandom(10, ofVec3f(urg.feet[i]->x, urg.feet[i]->y));
         sys.update();
     }
+    
+    printf("%d\n", (int)std::fabs(last_feet_count - (int)urg.feet.size()));
+    
+//    printf("%d\n", (int)sound_player.size());
+    if (std::fabs(last_feet_count - (int)urg.feet.size()) > soundSensitiveness) {
+        ofSoundPlayer sp;
+        sp.loadSound("cygnus0"+ofToString((int)ofRandom(5)+1)+".mp3");
+        sp.setLoop(false);
+        sp.setMultiPlay(false);
+        sp.play();
+        sound_player.push_back(sp);
+    }
+    last_feet_count = urg.feet.size();
+    
+    sound_player.erase(remove_if(sound_player.begin(), sound_player.end(), sound_end), sound_player.end());
 
     ofSetWindowTitle(ofToString(ofGetFrameRate()));
 }
@@ -87,7 +108,7 @@ void ofApp::draw(){
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
-    // sys.debugDraw();
+//     sys.debugDraw();
     
     // bind texture, enable point sprite while drawing particles
     sprite.bind();
