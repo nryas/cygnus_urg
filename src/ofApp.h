@@ -35,4 +35,6 @@ class ofApp : public ofBaseApp{
         string sound_names[6];
         int last_feet_count;
         vector <ofSoundPlayer> sound_player;
+        bool show_sensor_circle;
+        bool show_gui;
 };

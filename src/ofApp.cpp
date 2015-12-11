@@ -67,6 +67,8 @@ void ofApp::setup(){
     group.reserve(400);
     
     last_feet_count = 0;
+    
+    show_gui = show_sensor_circle = true;
 }
 
 //--------------------------------------------------------------
@@ -78,9 +80,9 @@ void ofApp::update(){
         sys.update();
     }
     
-    printf("%d\n", (int)std::fabs(last_feet_count - (int)urg.feet.size()));
+//    printf("%d\n", (int)std::fabs(last_feet_count - (int)urg.feet.size()));
     
-//    printf("%d\n", (int)sound_player.size());
+    printf("%d\n", (int)sound_player.size());
     if (std::fabs(last_feet_count - (int)urg.feet.size()) > soundSensitiveness) {
         ofSoundPlayer sp;
         sp.loadSound("cygnus0"+ofToString((int)ofRandom(5)+1)+".mp3");
@@ -104,7 +106,9 @@ void ofApp::draw(){
     ofRotateZ(-96);
     ofScale(sliderScale, sliderScale, sliderScale);
     
-    urg.draw();
+    if (show_sensor_circle) {
+        urg.draw();
+    }
     
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
@@ -117,24 +121,28 @@ void ofApp::draw(){
     ofDisablePointSprites();
     sprite.unbind();
     
-//  urg.drawDebugPolar();
-    ofPopMatrix();
-    
-    ofSetColor(255, 255, 255);
-    ofDrawBitmapString(ofToString(ofGetFrameRate(), 0), 20, 140);
-    if (!urg.isFrameCaptured()) {
-        ofDrawBitmapString("not learned", 20, 160);
-    } else {
-        ofDrawBitmapString("learned", 20, 160);
+    if (show_gui) {
+    //  urg.drawDebugPolar();
+        ofPopMatrix();
+        
+        ofSetColor(255, 255, 255);
+        ofDrawBitmapString(ofToString(ofGetFrameRate(), 0), 20, 140);
+        if (!urg.isFrameCaptured()) {
+            ofDrawBitmapString("not learned", 20, 160);
+        } else {
+            ofDrawBitmapString("learned", 20, 160);
+        }
+        gui.draw();
     }
-    
-    gui.draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if (key == ' ') {
         urg.captureData();
+    } else if (key == 'd') {
+        show_gui = !show_gui;
+        show_sensor_circle = !show_sensor_circle;
     }
 }
 
